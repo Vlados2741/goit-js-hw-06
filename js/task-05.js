@@ -12,8 +12,8 @@ const name = document.querySelector(`#name-output`);
 // const output = document.querySelector(".output");
 
 form.addEventListener("input", (event) => {
+  if (event.currentTarget.value === "") {
+    return  name.textContent = `Anonymous`
+  };
     name.textContent = event.currentTarget.value;
-});
-form.addEventListener("blur", () => {
-  name.textContent = "Anonymous";
 });
