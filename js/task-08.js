@@ -20,19 +20,23 @@ const refs = {
     emailInput: document.querySelector(`[name="email"]`),
     btnSubmit: document.querySelector(`button`),
 };
-// console.log(refs.form)
+
 refs.form.addEventListener("submit", onformSubmit)
     
-    function onformSubmit (event) {
-        event.preventDefault();
-        if (refs.passwordInput.value === "" || refs.emailInput.value === "") {
+function onformSubmit(event) {
+    event.preventDefault();
+    if (refs.passwordInput.value === "" || refs.emailInput.value === "") {
         alert("Все поля должны быть заполнены")
+        return;
     }
-        const formData = new FormData(event.currentTarget);
-
-        console.log(formData)
-
-            formData.forEach((value) => {
-                console.log(value)
-        });
-}; 
+    const { elements: {
+        email,
+        password
+    } } = event.currentTarget
+    const user = {
+        email: email.value,
+        password: password.value
+    }
+    console.log(user)
+    event.currentTarget.reset()
+        }; 
