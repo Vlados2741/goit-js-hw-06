@@ -26,7 +26,8 @@ refs.form.addEventListener("submit", onformSubmit)
 function onformSubmit(event) {
     event.preventDefault();
     if (refs.passwordInput.value === "" || refs.emailInput.value === "") {
-        alert("Все поля должны быть заполнены")
+        alert("Все поля должны быть заполнены");
+        event.currentTarget.reset();
         return;
     }
     const { elements: {

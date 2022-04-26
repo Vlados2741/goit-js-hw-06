@@ -21,20 +21,23 @@ const images = [
   },
 ];
 
-const galleryPictures = images.map(image => {
-  const galleryItem = document.createElement(`li`);
-  galleryItem.classList.add(`images-list`);
-  return galleryItem;
-});
-const galleryImages = images.map(image => {
-  const imageEl = document.createElement(`img`);
-  imageEl.src = image.url;
-  imageEl.alt = image.alt;
-  imageEl.classList.add(`img`);
-  return imageEl;
-});
+const createImagesList = images.map(image => `<li>
+    <img src="${image.url}"alt="${image.alt}" class="img">
+  </li>`).join("");
+console.log (createImagesList)
+// const galleryPictures = images.map(image => {
+//   const galleryItem = document.createElement(`li`);
+//   galleryItem.classList.add(`images-list`);
+//   return galleryItem;
+// });
+// const galleryImages = images.map(image => {
+//   const imageEl = document.createElement(`img`);
+//   imageEl.src = image.url;
+//   imageEl.alt = image.alt;
+//   imageEl.classList.add(`img`);
+//   return imageEl;
+// });
 
-// console.log(galleryPictures)
-// const galleryEl = images.map(image => console.log(image.url, image.alt));
-  const imagesList = document.querySelector(`.gallery`)
-  imagesList.append(...galleryPictures, ...galleryImages);
+const imagesList = document.querySelector(`.gallery`)
+imagesList.insertAdjacentHTML("beforeend", createImagesList);
+  // imagesList.append(...galleryPictures, ...galleryImages);
